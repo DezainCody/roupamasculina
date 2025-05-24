@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Bros - Moda Masculina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animações mantidas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideEffect {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        /* Header com Logo - Design limpo */
+        header {
+            padding: 2rem 0;
+            text-align: center;
+            background: white;
+            border-bottom: 1px solid #eee;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .logo-container {
+            display: inline-block;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out, borderGlow 3s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #000, #333, #000, #555);
+            border-radius: 50%;
+            z-index: -1;
+            background-size: 300% 300%;
+            animation: borderSlide 4s ease infinite;
+        }
+
+        @keyframes borderSlide {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .logo-container:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+        }
+
+        .brand-name {
+            margin-top: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        /* Seção de Contato - Design corporativo */
+        .contact-section {
+            padding: 3rem 0;
+            text-align: center;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #1a1a1a;
+            margin: 1rem auto;
+        }
+
+        /* Grid de Contato */
+        .contact-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Botão WhatsApp - Design com efeito de deslize */
+        .whatsapp-container {
+            animation: slideInLeft 1s ease-out 0.5s both;
+            text-align: center;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 3rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            min-width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .whatsapp-button:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            background: #128C7E;
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            animation: slideEffect 0.8s ease-out;
+        }
+
+        /* Modal do Formulário - Design limpo */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 450px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #1a1a1a, #333, #1a1a1a);
+            border-radius: 12px;
+            z-index: -1;
+            background-size: 300% 300%;
+            animation: borderSlide 3s ease infinite;
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-button:hover {
+            background: #e9ecef;
+            color: #333;
+        }
+
+        /* Formulário - Design corporativo */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1a1a1a;
+            box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .submit-button:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        .submit-button.loading .button-text {
+            opacity: 0;
+        }
+
+        .submit-button.loading .loading-spinner {
+            display: block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mapa - Design limpo */
+        .map-container {
+            animation: slideInRight 1s ease-out 0.5s both;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .map-wrapper {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .map-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #1a1a1a, #333, #1a1a1a);
+            border-radius: 12px;
+            z-index: -1;
+            background-size: 300% 300%;
+            animation: borderSlide 4s ease infinite;
+        }
+
+        .map-wrapper:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Informações Adicionais - Design corporativo */
+        .info-section {
+            padding: 3rem 0;
+            text-align: center;
+            background: #fafbfc;
+            border-top: 1px solid #eee;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            animation: fadeInUp 1s ease-out 0.7s both;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .info-item:hover::before {
+            left: 100%;
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .info-item h3 {
+            color: #1a1a1a;
+            font-weight: 400;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .info-item p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Footer - Design limpo */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: white;
+            color: #666;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .container {
+                box-shadow: none;
+            }
+            
+            .logo-container {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .brand-name {
+                font-size: 1.8rem;
+            }
+            
+            .whatsapp-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.9rem;
+                min-width: 280px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .map-wrapper {
+                height: 280px;
+            }
+            
+            .modal-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Mensagem de Sucesso */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 1.5rem;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 6px;
+            margin-top: 1rem;
+            color: #155724;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h3 {
+            color: #155724;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+
+        .success-message p {
+            color: #155724;
+            font-size: 0.9rem;
+        }
+
+        /* Melhorias visuais */
+        .contact-grid p {
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Silhueta masculina estilizada -->
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#f0f0f0;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Cabeça -->
+                    <circle cx="50" cy="25" r="12" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Tronco (terno) -->
+                    <path d="M35 35 L65 35 L68 45 L68 65 L32 65 L32 45 Z" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Gravata -->
+                    <path d="M48 35 L52 35 L54 50 L50 55 L46 50 Z" fill="#333"/>
+                    
+                    <!-- Lapelas do terno -->
+                    <path d="M35 35 L42 42 L35 50" fill="none" stroke="#333" stroke-width="1"/>
+                    <path d="M65 35 L58 42 L65 50" fill="none" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Braços -->
+                    <path d="M32 40 L25 45 L25 60 L30 58 L32 55" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    <path d="M68 40 L75 45 L75 60 L70 58 L68 55" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Pernas -->
+                    <path d="M38 65 L38 85 L42 85 L42 65" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    <path d="M58 65 L58 85 L62 85 L62 65" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Sapatos -->
+                    <ellipse cx="40" cy="87" rx="4" ry="2" fill="#333"/>
+                    <ellipse cx="60" cy="87" rx="4" ry="2" fill="#333"/>
+                </svg>
+            </div>
+            <h1 class="brand-name">STYLE BROS</h1>
+            <p class="tagline">Moda Masculina com Elegância e Estilo</p>
+        </header>
+
+        <section class="contact-section">
+            <h2 class="section-title">Entre em Contato</h2>
+            
+            <div class="contact-grid">
+                <div class="whatsapp-container">
+                    <button class="whatsapp-button" onclick="openModal()">
+                        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+                        </svg>
+                        Atendimento no WhatsApp
+                    </button>
+                    <p>Clique para falar conosco</p>
+                </div>
+
+                <div class="map-container">
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.597544836739!2d-34.8733876!3d-7.1194958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ace810852ae4f1%3A0xaf5445223401f2bb!2sJo%C3%A3o%20Pessoa%2C%20PB!5e0!3m2!1spt-BR!2sbr!4v1234567890" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Style Bros. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Modal do Formulário -->
+    <div id="formModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title">Atendimento Personalizado</h3>
+                <p class="modal-subtitle">
+                    Preencha rapidamente para agilizar seu atendimento.<br>
+                    Suas respostas serão enviadas diretamente para nosso WhatsApp.
+                </p>
+            </div>
+            
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <label for="nome">Seu Nome</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Como você gostaria de ser chamado?">
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(83) 99999-9999" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="endereco">Endereço (opcional)</label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Para calcularmos a entrega">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tamanho">Tamanho que Procura</label>
+                    <select id="tamanho" name="tamanho">
+                        <option value="">Selecione (opcional)</option>
+                        <option value="PP">PP</option>
+                        <option value="P">P</option>
+                        <option value="M">M</option>
+                        <option value="G">G</option>
+                        <option value="GG">GG</option>
+                        <option value="EXG">EXG</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensagem">Algo específico? (opcional)</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Ex: Procuro terno para casamento, roupa para trabalho, look casual..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">
+                    <span class="button-text">Enviar para WhatsApp</span>
+                    <div class="loading-spinner"></div>
+                </button>
+            </form>
+            
+            <div id="successMessage" class="success-message">
+                <h3>✓ Enviado com sucesso!</h3>
+                <p>Redirecionando para o WhatsApp...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Abrir e fechar modal
+        function openModal() {
+            document.getElementById('formModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('formModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+            document.getElementById('whatsappForm').reset();
+            document.getElementById('successMessage').classList.remove('show');
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.classList.remove('loading');
+            submitButton.disabled = false;
+        }
+
+        // Fechar modal ao clicar fora
+        document.getElementById('formModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Máscara para telefone
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            let formattedValue = '';
+            
+            if (value.length > 0) {
+                formattedValue = '(' + value.substring(0, 2);
+            }
+            if (value.length > 2) {
+                formattedValue += ') ' + value.substring(2, 7);
+            }
+            if (value.length > 7) {
+                formattedValue += '-' + value.substring(7, 11);
+            }
+            
+            e.target.value = formattedValue;
+        });
+
+        // Validar telefone
+        function isValidPhone(phone) {
+            const cleanPhone = phone.replace(/\D/g, '');
+            return cleanPhone.length >= 10;
+        }
+
+        // Enviar formulário
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.classList.add('loading');
+            submitButton.disabled = true;
+            
+            // Coletar dados
+            const nome = document.getElementById('nome').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const endereco = document.getElementById('endereco').value.trim();
+            const tamanho = document.getElementById('tamanho').value;
+            const mensagem = document.getElementById('mensagem').value.trim();
+            
+            // Validações
+            if (!nome || !telefone) {
+                alert('Por favor, preencha seu nome e telefone.');
+                submitButton.classList.remove('loading');
+                submitButton.disabled = false;
+                return;
+            }
+            
+            if (!isValidPhone(telefone)) {
+                alert('Por favor, digite um telefone válido.');
+                submitButton.classList.remove('loading');
+                submitButton.disabled = false;
+                return;
+            }
+            
+            // Montar mensagem
+            let whatsappMessage = `👔 *Olá! Vim pelo site Style Bros*\n\n`;
+            whatsappMessage += `👤 *Nome:* ${nome}\n`;
+            whatsappMessage += `📱 *Telefone:* ${telefone}\n`;
+            
+            if (endereco) {
+                whatsappMessage += `📍 *Endereço:* ${endereco}\n`;
+            }
+            if (tamanho) {
+                whatsappMessage += `👕 *Tamanho:* ${tamanho}\n`;
+            }
+            if (mensagem) {
+                whatsappMessage += `💬 *Mensagem:* ${mensagem}\n`;
+            }
+            
+            whatsappMessage += `\n_Aguardo seu contato! 😊_`;
+            
+            const whatsappNumber = '5583991816152';
+            
+            // Processar e redirecionar
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.add('show');
+                
+                setTimeout(() => {
+                    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+                    
+                    try {
+                        const newWindow = window.open(whatsappURL, '_blank');
+                        if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                            window.location.href = whatsappURL;
+                        }
+                    } catch (error) {
+                        window.location.href = whatsappURL;
+                    }
+                    
+                    setTimeout(closeModal, 800);
+                }, 1200);
+            }, 500);
+        });
+
+        // Animação de entrada ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animação
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.info-item').forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        });
+
+        // ESC para fechar modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Otimização para dispositivos móveis
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+        }
+    </script>
+</body>
+</html>
