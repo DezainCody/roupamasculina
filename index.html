@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Closet Dellas - Moda Feminina</title>
+    <title>Style Bros - Moda Masculina</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,52 +15,18 @@
         }
 
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             background: #f8f9fa;
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Loader com animação Lottie */
-        .loader-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader {
-            width: 80px;
-            height: 80px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #fff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        .loader-container.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Animações */
+        /* Animações mantidas */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -76,7 +42,7 @@
         @keyframes slideInLeft {
             from {
                 opacity: 0;
-                transform: translateX(-30px);
+                transform: translateX(-20px);
             }
             to {
                 opacity: 1;
@@ -87,7 +53,7 @@
         @keyframes slideInRight {
             from {
                 opacity: 0;
-                transform: translateX(30px);
+                transform: translateX(20px);
             }
             to {
                 opacity: 1;
@@ -95,54 +61,27 @@
             }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes neonGlow {
-            0%, 100% { 
-                box-shadow: 0 0 5px #FFE4E1, 0 0 10px #FFC0CB, 0 0 15px #FFB6C1;
+        @keyframes slideEffect {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
             }
-            50% { 
-                box-shadow: 0 0 10px #FFE4E1, 0 0 20px #FFC0CB, 0 0 30px #FFB6C1;
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
             }
         }
 
-        /* Banner Parallax */
-        .hero-banner {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                         url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-content h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out 0.5s both;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            animation: fadeInUp 1s ease-out 0.7s both;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .animated-text {
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
+        @keyframes borderGlow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 0, 0, 0.4);
+            }
         }
 
         /* Container Principal */
@@ -152,12 +91,12 @@
             padding: 0 20px;
             background: white;
             min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
 
-        /* Header com Logo */
+        /* Header com Logo - Design limpo */
         header {
-            padding: 3rem 0;
+            padding: 2rem 0;
             text-align: center;
             background: white;
             border-bottom: 1px solid #eee;
@@ -166,15 +105,17 @@
 
         .logo-container {
             display: inline-block;
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(255, 192, 203, 0.3);
-            transition: all 0.4s ease;
-            animation: fadeInUp 1s ease-out;
-            border: 3px solid #f0f0f0;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border: 3px solid transparent;
+            background-clip: padding-box;
             position: relative;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out, borderGlow 3s ease-in-out infinite;
+            margin-bottom: 1rem;
         }
 
         .logo-container::before {
@@ -184,64 +125,60 @@
             left: -3px;
             right: -3px;
             bottom: -3px;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
+            background: linear-gradient(45deg, #000, #333, #000, #555);
             border-radius: 50%;
             z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            background-size: 300% 300%;
+            animation: borderSlide 4s ease infinite;
         }
 
-        .logo-container:hover::before {
-            opacity: 1;
+        @keyframes borderSlide {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .logo-container:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
-        .logo-container img {
+        .logo-svg {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            padding: 15px;
         }
 
         .brand-name {
-            margin-top: 1.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            font-weight: 600;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 4px;
+            margin-top: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            letter-spacing: 2px;
             animation: fadeInUp 1s ease-out 0.2s both;
             text-transform: uppercase;
         }
 
         .tagline {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: #666;
-            margin-top: 0.8rem;
+            margin-top: 0.5rem;
             letter-spacing: 1px;
             animation: fadeInUp 1s ease-out 0.3s both;
-            font-weight: 300;
         }
 
-        /* Seção de Contato */
+        /* Seção de Contato - Design corporativo */
         .contact-section {
-            padding: 4rem 0;
+            padding: 3rem 0;
             text-align: center;
             background: white;
         }
 
         .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 300;
             color: #333;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             letter-spacing: 1px;
             position: relative;
             animation: fadeInUp 1s ease-out 0.4s both;
@@ -250,11 +187,10 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            margin: 1.5rem auto;
-            border-radius: 2px;
+            width: 60px;
+            height: 2px;
+            background: #1a1a1a;
+            margin: 1rem auto;
         }
 
         /* Grid de Contato */
@@ -262,11 +198,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3rem;
+            gap: 2rem;
             margin-top: 2rem;
         }
 
-        /* Botão WhatsApp com efeitos melhorados */
+        /* Botão WhatsApp - Design com efeito de deslize */
         .whatsapp-container {
             animation: slideInLeft 1s ease-out 0.5s both;
             text-align: center;
@@ -277,19 +213,19 @@
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            padding: 1.2rem 3.5rem;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            color: #B85A7C;
+            padding: 1rem 3rem;
+            background: #25D366;
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 500;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 400;
             letter-spacing: 0.5px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
             cursor: pointer;
             border: none;
-            box-shadow: 0 8px 25px rgba(255, 192, 203, 0.4);
-            min-width: 320px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            min-width: 300px;
             position: relative;
             overflow: hidden;
         }
@@ -301,68 +237,27 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #FFC0CB, #FFB6C1, #F8BBD9);
-            transition: left 0.4s ease;
-            z-index: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
         }
 
         .whatsapp-button:hover::before {
-            left: 0;
+            left: 100%;
         }
 
         .whatsapp-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(255, 182, 193, 0.5);
-            color: white;
-        }
-
-        .whatsapp-button span,
-        .whatsapp-icon {
-            position: relative;
-            z-index: 1;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            background: #128C7E;
         }
 
         .whatsapp-icon {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
+            animation: slideEffect 0.8s ease-out;
         }
 
-        /* Botão Flutuante WhatsApp */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(255, 192, 203, 0.4);
-            z-index: 1000;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: float 3s ease-in-out infinite, neonGlow 2s ease-in-out infinite alternate;
-            border: 3px solid #FFE4E1;
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(255, 182, 193, 0.6);
-        }
-
-        .floating-whatsapp:hover svg {
-            color: white;
-        }
-
-        .floating-whatsapp svg {
-            width: 35px;
-            height: 35px;
-            color: #B85A7C;
-        }
-
-        /* Modal melhorado */
+        /* Modal do Formulário - Design limpo */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -370,13 +265,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .modal-overlay.show {
@@ -385,59 +279,70 @@
         }
 
         .modal-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            max-width: 480px;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 450px;
             width: 90%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-            transform: scale(0.8) translateY(50px);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
             position: relative;
-            border: 1px solid #f0f0f0;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #1a1a1a, #333, #1a1a1a);
+            border-radius: 12px;
+            z-index: -1;
+            background-size: 300% 300%;
+            animation: borderSlide 3s ease infinite;
         }
 
         .modal-overlay.show .modal-content {
-            transform: scale(1) translateY(0);
+            transform: scale(1);
         }
 
         .modal-header {
             text-align: center;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #444;
         }
 
         .modal-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
         }
 
         .modal-subtitle {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            color: #cccccc;
+            line-height: 1.5;
         }
 
         .close-button {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-            border: 2px solid #ddd;
-            width: 40px;
-            height: 40px;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #555;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            font-size: 1.4rem;
-            color: #666;
+            font-size: 1.2rem;
+            color: #ffffff;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -446,32 +351,32 @@
         }
 
         .close-button:hover {
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            color: #B85A7C;
-            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
         }
 
-        /* Formulário melhorado */
+        /* Formulário - Design corporativo */
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            color: #555;
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-            font-weight: 500;
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
             font-family: inherit;
             transition: all 0.3s ease;
             background: white;
@@ -481,28 +386,27 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #FFC0CB;
-            box-shadow: 0 0 0 3px rgba(255, 192, 203, 0.2);
-            transform: translateY(-2px);
+            border-color: #1a1a1a;
+            box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 80px;
         }
 
         .submit-button {
             width: 100%;
-            padding: 1.2rem;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            color: #B85A7C;
+            padding: 1rem;
+            background: #1a1a1a;
+            color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 400;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             position: relative;
             overflow: hidden;
         }
@@ -514,23 +418,17 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #FFC0CB, #FFB6C1, #F8BBD9);
-            transition: left 0.3s ease;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
         }
 
         .submit-button:hover::before {
-            left: 0;
+            left: 100%;
         }
 
         .submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
-            color: white;
-        }
-
-        .submit-button span {
-            position: relative;
-            z-index: 1;
+            background: #333;
+            transform: translateY(-1px);
         }
 
         .submit-button:disabled {
@@ -541,10 +439,10 @@
 
         .loading-spinner {
             display: none;
-            width: 24px;
-            height: 24px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top: 3px solid white;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto;
@@ -558,45 +456,47 @@
             display: block;
         }
 
-        /* Mapa melhorado */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mapa - Design limpo */
         .map-container {
             animation: slideInRight 1s ease-out 0.5s both;
             width: 100%;
-            max-width: 900px;
+            max-width: 800px;
         }
 
         .map-wrapper {
             width: 100%;
-            height: 400px;
-            border-radius: 20px;
+            height: 350px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s ease;
-            border: 3px solid #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background-clip: padding-box;
             position: relative;
         }
 
         .map-wrapper::before {
             content: '';
             position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            border-radius: 20px;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #1a1a1a, #333, #1a1a1a);
+            border-radius: 12px;
             z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .map-wrapper:hover::before {
-            opacity: 1;
+            background-size: 300% 300%;
+            animation: borderSlide 4s ease infinite;
         }
 
         .map-wrapper:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         .map-wrapper iframe {
@@ -605,28 +505,30 @@
             border: none;
         }
 
-        /* Seção de Informações melhorada */
+        /* Informações Adicionais - Design corporativo */
         .info-section {
-            padding: 4rem 0;
+            padding: 3rem 0;
             text-align: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: #fafbfc;
             border-top: 1px solid #eee;
+            animation: fadeIn 1s ease-out 0.6s both;
         }
 
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            margin-top: 3rem;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .info-item {
-            padding: 2.5rem;
+            padding: 2rem;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border: 2px solid #f0f0f0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            animation: fadeInUp 1s ease-out 0.7s both;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -637,148 +539,95 @@
             top: 0;
             left: -100%;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            transition: left 0.4s ease;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
+            transition: left 0.6s ease;
         }
 
         .info-item:hover::before {
-            left: 0;
+            left: 100%;
         }
 
         .info-item:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
         }
 
         .info-item h3 {
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
+            color: #1a1a1a;
+            font-weight: 400;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
             letter-spacing: 0.5px;
-            font-family: 'Montserrat', sans-serif;
         }
 
         .info-item p {
             color: #666;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        /* Footer melhorado */
-        footer {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 3rem 0 1.5rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #ecf0f1;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(45deg, #FFE4E1, #FFC0CB, #FFB6C1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #B85A7C;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
-            color: white;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
-            color: white;
-        }
-
-        .footer-menu {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-menu li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-menu a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-menu a:hover {
-            color: #FFC0CB;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #34495e;
-            padding-top: 1.5rem;
             font-size: 0.9rem;
-            color: #bdc3c7;
+            line-height: 1.6;
         }
 
-        /* Elementos com fade-in no scroll */
-        .fade-in-element {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        /* Footer - Design limpo */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: white;
+            color: #666;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            border-top: 1px solid #eee;
         }
 
-        .fade-in-element.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .container {
+                box-shadow: none;
+            }
+            
+            .logo-container {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .brand-name {
+                font-size: 1.8rem;
+            }
+            
+            .whatsapp-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.9rem;
+                min-width: 280px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .map-wrapper {
+                height: 280px;
+            }
+            
+            .modal-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
         }
 
         /* Mensagem de Sucesso */
         .success-message {
             display: none;
             text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #d1f2d1, #c8e6c9);
-            border: 2px solid #4caf50;
-            border-radius: 15px;
-            margin-top: 1.5rem;
-            color: #2e7d32;
+            padding: 1.5rem;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 6px;
+            margin-top: 1rem;
+            color: #155724;
             animation: fadeInUp 0.5s ease-out;
         }
 
@@ -787,110 +636,84 @@
         }
 
         .success-message h3 {
-            color: #2e7d32;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .success-message p {
-            color: #2e7d32;
+            color: #155724;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
             font-size: 1rem;
         }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .hero-banner {
-                height: 50vh;
-                background-attachment: scroll;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .container {
-                box-shadow: none;
-            }
-            
-            .logo-container {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .brand-name {
-                font-size: 2.2rem;
-            }
-            
-            .whatsapp-button {
-                padding: 1rem 2.5rem;
-                font-size: 1rem;
-                min-width: 280px;
-            }
-            
-            .info-grid,
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .map-wrapper {
-                height: 300px;
-            }
-            
-            .modal-content {
-                padding: 2rem;
-                margin: 1rem;
-                border-radius: 15px;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .floating-whatsapp {
-                width: 55px;
-                height: 55px;
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .floating-whatsapp svg {
-                width: 30px;
-                height: 30px;
-            }
+        .success-message p {
+            color: #155724;
+            font-size: 0.9rem;
+        }
+
+        /* Melhorias visuais */
+        .contact-grid p {
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <!-- Loader -->
-    <div class="loader-container" id="loader">
-        <div class="loader"></div>
-    </div>
     <div class="container">
         <header>
             <div class="logo-container">
-                <img src="https://i.postimg.cc/65Wz3j7G/CLOSET-DELLAS-jpg.jpg" alt="Closet Dellas">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Silhueta masculina estilizada -->
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#f0f0f0;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Cabeça -->
+                    <circle cx="50" cy="25" r="12" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Tronco (terno) -->
+                    <path d="M35 35 L65 35 L68 45 L68 65 L32 65 L32 45 Z" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Gravata -->
+                    <path d="M48 35 L52 35 L54 50 L50 55 L46 50 Z" fill="#333"/>
+                    
+                    <!-- Lapelas do terno -->
+                    <path d="M35 35 L42 42 L35 50" fill="none" stroke="#333" stroke-width="1"/>
+                    <path d="M65 35 L58 42 L65 50" fill="none" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Braços -->
+                    <path d="M32 40 L25 45 L25 60 L30 58 L32 55" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    <path d="M68 40 L75 45 L75 60 L70 58 L68 55" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Pernas -->
+                    <path d="M38 65 L38 85 L42 85 L42 65" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    <path d="M58 65 L58 85 L62 85 L62 65" fill="url(#logoGradient)" stroke="#333" stroke-width="1"/>
+                    
+                    <!-- Sapatos -->
+                    <ellipse cx="40" cy="87" rx="4" ry="2" fill="#333"/>
+                    <ellipse cx="60" cy="87" rx="4" ry="2" fill="#333"/>
+                </svg>
             </div>
-            <h1 class="brand-name">CLOSET DELLAS</h1>
-            <p class="tagline">Moda Feminina com Elegância</p>
+            <h1 class="brand-name">STYLE BROS</h1>
+            <p class="tagline">Moda Masculina com Elegância e Estilo</p>
         </header>
 
         <section class="contact-section">
-            <h2 class="section-title fade-in-element">Entre em Contato</h2>
+            <h2 class="section-title">Entre em Contato</h2>
             
             <div class="contact-grid">
-                <div class="whatsapp-container fade-in-element">
+                <div class="whatsapp-container">
                     <button class="whatsapp-button" onclick="openModal()">
                         <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
                         </svg>
-                        <span>Atendimento no WhatsApp</span>
+                        Atendimento no WhatsApp
                     </button>
                     <p>Clique para falar conosco</p>
                 </div>
 
-                <div class="map-container fade-in-element">
+                <div class="map-container">
                     <div class="map-wrapper">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.597544836739!2d-34.8733876!3d-7.1194958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ace810852ae4f1%3A0xaf5445223401f2bb!2sJo%C3%A3o%20Pessoa%2C%20PB!5e0!3m2!1spt-BR!2sbr!4v1234567890" 
@@ -902,23 +725,11 @@
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- Botão Flutuante do WhatsApp -->
-    <div class="floating-whatsapp" onclick="openModal()">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
-        </svg>
+        <footer>
+            <p>&copy; 2025 Style Bros. Todos os direitos reservados.</p>
+        </footer>
     </div>
-
-    <!-- Footer melhorado -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-bottom">
-                <p>&copy; 2025 Closet Dellas. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- Modal do Formulário -->
     <div id="formModal" class="modal-overlay">
@@ -935,7 +746,7 @@
             <form id="whatsappForm">
                 <div class="form-group">
                     <label for="nome">Seu Nome</label>
-                    <input type="text" id="nome" name="nome" required placeholder="Como você gostaria de ser chamada?">
+                    <input type="text" id="nome" name="nome" required placeholder="Como você gostaria de ser chamado?">
                 </div>
                 
                 <div class="form-group">
@@ -963,7 +774,7 @@
                 
                 <div class="form-group">
                     <label for="mensagem">Algo específico? (opcional)</label>
-                    <textarea id="mensagem" name="mensagem" placeholder="Ex: Procuro vestido para casamento, roupa para trabalho..."></textarea>
+                    <textarea id="mensagem" name="mensagem" placeholder="Ex: Procuro terno para casamento, roupa para trabalho, look casual..."></textarea>
                 </div>
                 
                 <button type="submit" class="submit-button">
@@ -980,44 +791,6 @@
     </div>
 
     <script>
-        // Loader
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1500);
-        });
-
-        // Fade-in no scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observar elementos fade-in
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.fade-in-element').forEach(el => {
-                observer.observe(el);
-            });
-        });
-
-        // Parallax effect
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const banner = document.querySelector('.hero-banner');
-            if (banner) {
-                const rate = scrolled * -0.5;
-                banner.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
         // Abrir e fechar modal
         function openModal() {
             document.getElementById('formModal').classList.add('show');
@@ -1096,7 +869,7 @@
             }
             
             // Montar mensagem
-            let whatsappMessage = `🌸 *Olá! Vim pelo site Closet Dellas*\n\n`;
+            let whatsappMessage = `👔 *Olá! Vim pelo site Style Bros*\n\n`;
             whatsappMessage += `👤 *Nome:* ${nome}\n`;
             whatsappMessage += `📱 *Telefone:* ${telefone}\n`;
             
@@ -1104,7 +877,7 @@
                 whatsappMessage += `📍 *Endereço:* ${endereco}\n`;
             }
             if (tamanho) {
-                whatsappMessage += `👗 *Tamanho:* ${tamanho}\n`;
+                whatsappMessage += `👕 *Tamanho:* ${tamanho}\n`;
             }
             if (mensagem) {
                 whatsappMessage += `💬 *Mensagem:* ${mensagem}\n`;
@@ -1131,8 +904,30 @@
                     }
                     
                     setTimeout(closeModal, 800);
-                }, 1500);
-            }, 800);
+                }, 1200);
+            }, 500);
+        });
+
+        // Animação de entrada ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animação
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.info-item').forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
         });
 
         // ESC para fechar modal
@@ -1142,49 +937,10 @@
             }
         });
 
-        // Smooth scroll para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Animação de texto no hero
-        const animatedText = document.querySelector('.animated-text');
-        if (animatedText) {
-            setInterval(() => {
-                animatedText.style.animation = 'none';
-                setTimeout(() => {
-                    animatedText.style.animation = 'float 3s ease-in-out infinite';
-                }, 10);
-            }, 6000);
-        }
-
         // Otimização para dispositivos móveis
         if ('ontouchstart' in window) {
             document.body.classList.add('touch-device');
         }
-
-        // Preloader de imagens
-        const images = document.querySelectorAll('img');
-        let imagesLoaded = 0;
-        
-        images.forEach(img => {
-            if (img.complete) {
-                imagesLoaded++;
-            } else {
-                img.addEventListener('load', () => {
-                    imagesLoaded++;
-                });
-            }
-        });
     </script>
 </body>
 </html>
